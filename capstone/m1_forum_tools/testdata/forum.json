@@ -1,0 +1,7 @@
+[
+  {"tid": 101, "title": "Go 语言 goroutine 泄漏排查", "author": "alice", "replies": 12, "content": "用 pprof 查看 goroutine 数量，发现 channel 没人读导致泄漏。记得给 select 加 ctx.Done()。"},
+  {"tid": 102, "title": "SQLite FTS5 中文分词", "author": "bob", "replies": 5, "content": "FTS5 默认分词器不支持中文，可以用 trigram 分词器，或者先用 gse 切词再入库。"},
+  {"tid": 103, "title": "本地部署 LLM 的显存估算", "author": "carol", "replies": 30, "content": "7B 模型 fp16 约 14GB 显存，int4 量化约 4GB。上下文越长 KV cache 越大。"},
+  {"tid": 104, "title": "Agent 工具调用总是参数错误", "author": "alice", "replies": 8, "content": "小模型经常把 JSON 参数写错。解决：工具描述写清楚，参数用 JSON Schema 校验，出错时把错误信息返回给模型重试。"},
+  {"tid": 105, "title": "goroutine 和线程的区别", "author": "dave", "replies": 3, "content": "goroutine 初始栈只有几 KB，由 Go 调度器在少量系统线程上调度。"}
+]

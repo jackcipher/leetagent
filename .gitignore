@@ -1,0 +1,12 @@
+vendor/
+.idea/
+.vscode/
+*.exe
+*.test
+*.out
+progress.json
+.DS_Store
+*.bak/
+*.bak
+course.bak/
+*.db
