@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>leetagent</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <button id="menuButton" class="icon-button menu-button" type="button" aria-label="Toggle problem list" title="Toggle problem list">&#9776;</button>
+    <a class="brand" href="/">leetagent</a>
+    <div class="problem-heading">
+      <span id="problemPath">Loading course...</span>
+      <span id="difficulty" class="difficulty"></span>
+    </div>
+    <div class="actions">
+      <span id="saveState" class="save-state">Saved</span>
+      <button id="formatButton" class="secondary-button" type="button" title="Format Go source">Format</button>
+      <button id="saveButton" class="secondary-button" type="button">Save</button>
+      <button id="runButton" class="run-button" type="button"><span class="play-icon">&#9654;</span> Run tests</button>
+    </div>
+  </header>
+
+  <main id="workspace" class="workspace">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <div class="course-progress">
+          <span>Course progress</span>
+          <strong id="courseProgress">0 / 34</strong>
+        </div>
+        <label class="search-box">
+          <span class="search-icon">&#9906;</span>
+          <input id="problemSearch" type="search" placeholder="Search problems" autocomplete="off">
+        </label>
+      </div>
+      <nav id="problemList" class="problem-list" aria-label="Course problems"></nav>
+    </aside>
+
+    <section class="content-pane">
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="description" role="tab" aria-selected="true">Description</button>
+        <button class="tab" data-tab="hints" role="tab" aria-selected="false">Hints</button>
+        <button class="tab" data-tab="reference" role="tab" aria-selected="false">Common API</button>
+      </div>
+      <article id="description" class="content-panel markdown-pane active" role="tabpanel"></article>
+      <article id="hints" class="content-panel markdown-pane" role="tabpanel"></article>
+      <section id="reference" class="content-panel reference-pane" role="tabpanel">
+        <p class="reference-loading">Loading leetagent/common...</p>
+      </section>
+    </section>
+
+    <div id="workspaceResizer" class="workspace-resizer" role="separator" aria-label="Resize problem and editor panels" aria-orientation="vertical"></div>
+
+    <section class="work-pane">
+      <div class="editor-header">
+        <div class="file-label"><span class="file-dot"></span><span>exercise.go</span></div>
+        <div class="editor-meta"><span id="cursorPosition">Ln 1, Col 1</span><span class="language">Go</span></div>
+      </div>
+      <div class="editor-wrap">
+        <pre id="lineNumbers" class="line-numbers" aria-hidden="true">1</pre>
+        <div class="editor-code-stack">
+          <pre id="sourceHighlight" class="source-highlight" aria-hidden="true"><code id="sourceHighlightCode" class="language-go"></code><span id="sourceHighlightSentinel"></span></pre>
+          <textarea id="sourceEditor" class="source-editor" aria-label="Go source editor" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+        </div>
+      </div>
+      <div id="consoleResizer" class="console-resizer" role="separator" aria-label="Resize editor and test results" aria-orientation="horizontal"></div>
+      <div class="console-header">
+        <span>Tests</span>
+        <span id="testSummary" class="test-summary">Not run</span>
+      </div>
+      <div id="testOutput" class="test-output"><div class="test-empty">No results</div></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/go_highlight.js" defer></script>
+  <script src="/app.js" defer></script>
+</body>
+</html>
